@@ -1,0 +1,8 @@
+---
+title: "AppDescription"
+author: "Chris Tufts"
+date: "February 19, 2015"
+output: html_document
+---
+
+This application provides some visualizations of the data provided from the Kaggle Driver Telematics Analysis challenge found at <http://www.kaggle.com/c/axa-driver-telematics-analysis>.  The challenge was to develop a telematic fingerprint capable of distinguishing when a trip was taken by a particular driver of interest.  Possible metrics which could be used for the telematic finger print are provided in the scroll bars to the left.  All distance related metrics are based on Euclidean distances derived from the trip coordinates. The data used in this application is from driver #2. 

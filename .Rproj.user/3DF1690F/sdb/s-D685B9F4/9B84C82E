@@ -1,0 +1,16 @@
+{
+    "contents" : "# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\n\n\nshinyServer(function(input, output) {\n  \n  \n  \n  observe({\n    set.seed(7)\n    if(input$algorithm == \"kmeans\" & input$normalize == \"TRUE\"){\n    pred<-  kmeans(scale(processed.dat[,c(input$featureDisplay_x, input$featureDisplay_y)]), \n                          centers = input$k)$cluster\n    }else{\n      if(input$algorithm == \"kmeans\"){\n        pred<-  kmeans((processed.dat[,c(input$featureDisplay_x, input$featureDisplay_y)]), \n                       centers = input$k)$cluster\n      }else{\n        if(input$normalize == \"TRUE\"){\n          pred <- cutree(hclust(dist(scale(processed.dat[,c(input$featureDisplay_x, input$featureDisplay_y)]))), input$k)\n        }else{\n            pred <- cutree(hclust(dist(processed.dat[,c(input$featureDisplay_x, input$featureDisplay_y)])), input$k)\n        }\n     }\n    }\n    output$ScatterPlot <- renderPlot({\n            ggplot(processed.dat, aes_string(x = input$featureDisplay_x, \n                                  y = input$featureDisplay_y)) + \n              geom_point(size = 4, color = pred) + \n              labs(x = names(feature.list)[feature.list == input$featureDisplay_x],\n                   y = names(feature.list)[feature.list == input$featureDisplay_y]) +\n              fte_theme() + \n              scale_color_brewer(name = \"\", palette = \"Set1\") \n            \n            })\n    \n\n    \n  })\n  \n  observe({\n\n    trip.dat <- read.csv(paste0(\"2/\",input$fileName, \".csv\"))\n    output$tripPath <- renderPlot({\n      ggplot(trip.dat, aes(x = x, \n                            y = y, \n                            )) + \n        geom_point(size = 4, color = \"#7A99AC\") + \n        labs(x = \"x\",\n             y = \"y\") +\n        fte_theme() \n    })          \n    \n  })\n  \n})",
+    "created" : 1424398679259.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3567843496",
+    "id" : "9B84C82E",
+    "lastKnownWriteTime" : 1424407015,
+    "path" : "~/Dropbox/Kaggle/TelematicsApp/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

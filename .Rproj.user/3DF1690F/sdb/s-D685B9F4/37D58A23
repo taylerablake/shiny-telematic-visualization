@@ -1,0 +1,17 @@
+{
+    "contents" : "---\ntitle: \"tripInformation\"\nauthor: \"Chris Tufts\"\ndate: \"February 19, 2015\"\noutput: html_document\n---\n\nThe plot above displays the x and y coordinates for driver #2.  All of driver #2's trips are available for viewing. \nBelow is the description of trip data from <http://www.kaggle.com/c/axa-driver-telematics-analysis/data>:\n\nIn order to protect the privacy of the drivers' location, the trips were centered to start at the origin (0,0), randomly rotated, and short lengths of trip data were removed from the start/end of the trip.\n\nA small and random number of false trips (trips that were not driven by the driver of interest) are planted in each driver's folder. These false trips are sourced from drivers not included in the competition data, in order to prevent similarity analysis between the included drivers. You are not given the number of false trips (it varies), nor a labeled training set of true positive trips. You can safely make the assumption that the majority of the trips in each folder do belong to the same driver.",
+    "created" : 1424403977202.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3738059878",
+    "id" : "37D58A23",
+    "lastKnownWriteTime" : 1424404842,
+    "path" : "~/Dropbox/Kaggle/TelematicsApp/tripInformation.Rmd",
+    "project_path" : "tripInformation.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

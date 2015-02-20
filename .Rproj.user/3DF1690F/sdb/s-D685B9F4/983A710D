@@ -1,0 +1,17 @@
+{
+    "contents" : "rm(list = ls())\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(shiny)\nlibrary(scales)\nlibrary(RColorBrewer)\nlibrary(grid)\n\n\n\nprocessed.dat <- read.csv(\"ProcessedDat_v2.csv\")\n\nfeature.list <- c(\"mean distance\"= \"mean.d\",\n  \"median distance\" = \"median.d\",\n  \"standev distance\" = \"sd.d\", \n  \"cumulative distance\" = \"start.end.d\",\n  \"distance start point to end\" = \"total.d\",\n  \"number of stops\" = \"stops\",\n  \"unique stops\" = \"unique.stops\",\n  \"trip length\" = \"trip.length\"\n  )\nfile.list <- processed.dat$file.name\n\ntable.settings <- list(searching = F, pageLength = 5, bLengthChange = F,\n                       bPaginate = F, bInfo = F )\n\n\n# define theme for ggplots ####\nfte_theme <- function() {\n  \n  # Generate the colors for the chart procedurally with RColorBrewer\n  palette <- brewer.pal(\"Greys\", n=9)\n  color.background = palette[2]\n  color.grid.major = palette[3]\n  color.axis.text = palette[9]\n  color.axis.title = palette[9]\n  color.title = palette[9]\n  text.size <- 14\n  \n  # Begin construction of chart\n  theme_bw(base_size=9) +\n    \n    # Set the entire chart region to a light gray color\n    theme(panel.background=element_rect(fill=color.background, color=color.background)) +\n    theme(plot.background=element_rect(fill=color.background, color=color.background)) +\n    theme(panel.border=element_rect(color=color.background)) +\n    \n    # Format the grid\n    theme(panel.grid.major=element_line(color=color.grid.major,size=.25)) +\n    theme(panel.grid.minor=element_blank()) +\n    theme(axis.ticks=element_blank()) +\n    \n    # Format the legend, but hide by default\n    theme(legend.background = element_rect(fill=color.background)) +\n    theme(legend.text = element_text(size=text.size,color=color.axis.title)) +\n    theme(legend.title = element_text(size=text.size,color=color.axis.title)) +\n    theme(legend.position = \"bottom\") +\n    theme(legend.direction = \"vertical\") +\n    # Set title and axis labels, and format these and tick marks\n    theme(plot.title=element_text(color=color.title, size=text.size, vjust=1.25)) +\n    theme(axis.text.x=element_text(size=text.size,color=color.axis.text)) +\n    theme(axis.text.y=element_text(size=text.size,color=color.axis.text)) +\n    theme(axis.title.x=element_text(size=text.size,color=color.axis.title, vjust=0)) +\n    theme(axis.title.y=element_text(size=text.size,color=color.axis.title, vjust=1.25)) +\n    \n    # Plot margins\n    theme(plot.margin = unit(c(0.35, 0.2, 0.3, 0.35), \"cm\"))\n}",
+    "created" : 1424398963460.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2846997392",
+    "id" : "983A710D",
+    "lastKnownWriteTime" : 1424406004,
+    "path" : "~/Dropbox/Kaggle/TelematicsApp/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
